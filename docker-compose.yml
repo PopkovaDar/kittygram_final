@@ -8,15 +8,15 @@ volumes:
 services:
   db:
     image: postgres:13
-    evv_file: .env
+    ev_file: .env
     volumes:
       - pg_data:/var/lib/postgresql/data
   backend:
     build: ./backend/
-    env_file: .env
     volumes:
       static:/backend_static
       media:app/media
+    env_file: .env
   frontend:
     env_file: .env
     build: ./frontend/
@@ -30,4 +30,4 @@ services:
       - 9000:80
     volumes:
       - static:/staticfiles/
-      - media:/staticfiles/media
+      - media:/var/html/media/
