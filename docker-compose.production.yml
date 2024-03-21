@@ -15,8 +15,8 @@ services:
     image: daryapopk/kittygram_backend
     env_file: .env
     volumes:
-      static_volume:/backend_static
-      media_volume:app/media/
+      - static_volume:/backend_static
+      - media_volume:app/media/
   frontend:
     image: daryapopk/kittygram_frontend
     env_file: .env
