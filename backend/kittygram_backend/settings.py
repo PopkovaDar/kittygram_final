@@ -4,7 +4,20 @@ from pathlib import Path
 
 from dotenv import load_dotenv
 
+import sentry_sdk
+from sentry_sdk.integrations.django import DjangoIntegration
+
 load_dotenv()
+
+sentry_sdk.init(
+    # В этой переменной будет значение для вашего проекта.
+    dsn="ваш-client-keys",
+    integrations=[
+        DjangoIntegration(),
+    ],
+    traces_sample_rate=1.0,
+    send_default_pii=True
+)
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
