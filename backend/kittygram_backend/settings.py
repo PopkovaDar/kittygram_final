@@ -20,6 +20,7 @@ sentry_sdk.init(
     send_default_pii=True
 )
 
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.getenv('SECRET_KEY')
