@@ -9,7 +9,7 @@ Kittygram - социальная сеть в которой пользовате
 # Подключение к серверу:
 
 * Нужно зайти на сервер с помощью команды:
- ssh -i путь_до_файла_с_SSH_ключом/название_файла_закрытого_SSH-ключа login@ip
+ssh kittygram_server
 Далее вам понадобится ввести пароль от закрытого SSH-ключа (passphrase).
 
 # Установка backend и frontend приложения:
@@ -35,6 +35,9 @@ python3 manage.py collectstatic
 npm i
 npm run build
 sudo cp -r путь_к_директории_с_фронтенд-приложением/build/. /var/www/имя_проекта/
+
+* Сгенерируйте новый ключ SECRET_KEY:
+python3 -c 'from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())'
 
 * Создайте файл .env:
 POSTGRES_DB='название bd'
