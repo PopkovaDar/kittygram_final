@@ -1,5 +1,6 @@
 # flake8: noqa
 import os
+from django.core.exceptions import ImproperlyConfigured
 from pathlib import Path
 
 from dotenv import load_dotenv
@@ -20,7 +21,10 @@ sentry_sdk.init(
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = os.getenv('SECRET_KEY', '123')
+SECRET_KEY = os.getenv('SECRET_KEY')
+
+if not SECRET_KEY:
+    raise ImproperlyConfigured('SECRET_KEY не установлен!')
 
 DEBUG = os.getenv('DEBUG') == 'True'
 
