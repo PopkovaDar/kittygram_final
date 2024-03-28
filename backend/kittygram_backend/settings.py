@@ -5,7 +5,6 @@ from pathlib import Path
 from dotenv import load_dotenv
 
 import sentry_sdk
-from sentry_sdk.integrations.django import DjangoIntegration
 
 
 dotenv_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'kittygram_final', '.env')
@@ -13,12 +12,9 @@ load_dotenv(dotenv_path)
 
 
 sentry_sdk.init(
-    dsn="https://5cf37dcd2f589e2957e30114ae5b6667@o4506784713801728.ingest.us.sentry.io/4506949576687616",
-    integrations=[
-        DjangoIntegration(),
-    ],
+    dsn="https://b421a0bbe35e65068b36a94fde84fab1@o4506769189568512.ingest.us.sentry.io/4506990573780992",
     traces_sample_rate=1.0,
-    send_default_pii=True
+    profiles_sample_rate=1.0,
 )
 
 
