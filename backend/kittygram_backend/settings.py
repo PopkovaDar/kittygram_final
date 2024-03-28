@@ -24,7 +24,7 @@ sentry_sdk.init(
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = os.getenv('SECRET_KEY')
+SECRET_KEY = '!ti&b8!2iyrg$0d$#g=vrdnlxjsdtn&+=*)850_0$i1gm@fu@4'
 
 DEBUG = os.getenv('DEBUG') == 'True'
 
